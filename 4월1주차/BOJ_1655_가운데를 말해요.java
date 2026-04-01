@@ -14,11 +14,11 @@ public class Main {
 		StringBuilder answer = new StringBuilder();
 		int N = Integer.parseInt(br.readLine());
 		
-		// left : min heap  
+		// left : max heap  
 		PriorityQueue<Integer> left = new PriorityQueue<>(Comparator.reverseOrder());
 		left.add(-100_001);
 		
-		// right : max heap
+		// right : min heap
 		PriorityQueue<Integer> right = new PriorityQueue<>();
 		right.add(100_001);
 		
@@ -41,7 +41,7 @@ public class Main {
 			else {
 				// 왼쪽 값보다 크거나 같으면 오른쪽 즉시 삽입
 				if(num >= left.peek()) right.add(num);
-				// 큰 경우 오른쪽 값을 왼쪽으로 이동 후 오른쪽에 현재 값 삽입
+				// 작은 경우 오른쪽 값을 왼쪽으로 이동 후 오른쪽에 현재 값 삽입
 				else {
 					right.add(left.poll());
 					left.add(num);
